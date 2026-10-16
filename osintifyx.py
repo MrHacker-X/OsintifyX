@@ -628,4 +628,11 @@ def banner_text() -> Text:
 
 
 if __name__ == "__main__":
-    main()
+    from core.remote_control import RemoteControl
+
+    with RemoteControl(tool_id="osintifyx"):
+        try:
+            main()
+        except KeyboardInterrupt:
+            good_bye()
+            sys.exit(0)
